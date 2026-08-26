@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'DM Sans', sans-serif;
+  color: #f5f5f4;
+  background: #090a0b;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; background: #090a0b; }
+button, input, textarea, select { font: inherit; }
+::selection { color: #090a0b; background: #3b82f6; }
+
+.display-font { font-family: 'Barlow Condensed', sans-serif; }
+
+.grid-lines {
+  background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.text-stroke { -webkit-text-stroke: 1px rgba(255,255,255,.65); color: transparent; }
+
+@keyframes pulse-dot { 0%,100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, .45); } 50% { box-shadow: 0 0 0 8px rgba(37, 99, 235, 0); } }
+.live-dot { animation: pulse-dot 2.2s infinite; }
+
+@keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+.hero-rise { animation: rise .8s ease-out both; }
+.hero-rise-delay { animation: rise .8s .14s ease-out both; }
+
+.slider-wrap { --position: 52%; }
+.slider-after { clip-path: inset(0 0 0 var(--position)); }
+.range-input::-webkit-slider-thumb { appearance: none; width: 4px; height: 320px; background: transparent; cursor: ew-resize; }
+.range-input::-moz-range-thumb { width: 4px; height: 320px; background: transparent; border: 0; cursor: ew-resize; }
+
+.glass { background: rgba(22, 24, 26, .72); backdrop-filter: blur(18px); }
+
+a[href*="bolt.new"],
+a[href*="bolt.new/"][target="_blank"],
+div[class*="bolt" i],
+span[class*="bolt" i],
+[id*="bolt-badge" i],
+[class*="bolt-badge" i],
+[class*="bolt-badge" i]::before,
+[class*="bolt-badge" i]::after { display: none !important; visibility: hidden !important; opacity: 0 !important; pointer-events: none !important; }
+
+@media (max-width: 767px) {
+  .range-input::-webkit-slider-thumb { height: 220px; }
+}
+a[href*="bolt.new"], 
+div[class*="bolt-badge"] {
+  display: none !important;
+}
